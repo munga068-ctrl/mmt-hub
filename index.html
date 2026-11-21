@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MMT Business Corporation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF2F6;--surface:#fff;--ink:#13233B;--muted:#5B6B82;--line:#D6DEE8;--accent:#2450E0;--accent-ink:#fff;--amber:#D98A1B;--green:#1F8F5F;--grey:#7A8799;--soft:#E4EBF5;
+--display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--body:"Instrument Sans","Segoe UI",system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1726;--surface:#16233A;--ink:#E8EEF8;--muted:#98A8C0;--line:#26364F;--accent:#6C8CFF;--accent-ink:#0E1726;--amber:#F0B056;--green:#4CC38F;--grey:#8896AB;--soft:#1D2D48}}
+:root[data-theme="dark"]{--bg:#0E1726;--surface:#16233A;--ink:#E8EEF8;--muted:#98A8C0;--line:#26364F;--accent:#6C8CFF;--accent-ink:#0E1726;--amber:#F0B056;--green:#4CC38F;--grey:#8896AB;--soft:#1D2D48}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 15px/1.5 var(--body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font:800 18px var(--display);letter-spacing:-.01em;text-decoration:none}
+.mark{width:34px;height:34px;border-radius:9px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:800 13px var(--display);letter-spacing:.02em}
+nav{display:flex;gap:4px;margin-left:auto}
+nav a{padding:7px 14px;border-radius:99px;text-decoration:none;font-weight:500;color:var(--muted)}
+nav a[aria-current="page"]{background:var(--ink);color:var(--bg)}
+main{max-width:1080px;margin:0 auto;padding:28px 20px 56px}
+h1{font:800 clamp(28px,5vw,44px)/1.05 var(--display);letter-spacing:-.025em;margin:0 0 8px}
+h2{font:700 20px var(--display);margin:0 0 12px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 24px;max-width:60ch}
+.band{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:20px}
+.fig{padding:16px 18px;border-right:1px solid var(--line)}
+.fig:last-child{border-right:0}
+.fig b{display:block;font:800 30px/1.1 var(--display);letter-spacing:-.02em}
+.fig span{color:var(--muted);font-size:13px}
+.lang{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:20px}
+.stack{display:flex;height:12px;border-radius:99px;overflow:hidden;background:var(--soft);margin:8px 0 12px}
+.key{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+input,select,textarea,button{font:inherit;color:var(--ink)}
+input[type=search],select{padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+input[type=search]{flex:1;min-width:180px}
+.list{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 110px 80px 80px 100px;gap:12px;align-items:center;padding:14px 18px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row.head{background:var(--soft);font-size:13px;color:var(--muted);font-weight:600;padding:10px 18px}
+.row .n{font:700 16px var(--display);text-decoration:none;display:block}
+.row .n:hover{color:var(--accent)}
+.row small{color:var(--muted);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;font-size:12px;font-weight:600;border:1px solid currentColor}
+.Active{color:var(--green)}.Maintenance{color:var(--amber)}.Archived{color:var(--grey)}
+.num{font-variant-numeric:tabular-nums}
+.empty{padding:36px 18px;text-align:center;color:var(--muted)}
+.hero{padding:36px 0 28px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.hero h1{font-size:clamp(34px,8vw,68px)}
+.cta{display:inline-block;margin-top:16px;padding:11px 20px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;border:0;cursor:pointer}
+.cta.alt{background:var(--soft);color:var(--ink)}
+.proj{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0;border-top:1px solid var(--line)}
+.proj article{padding:20px 20px 22px 0;border-bottom:1px solid var(--line)}
+.proj h3{font:700 18px var(--display);margin:0 0 6px}
+.proj p{margin:0 0 10px;color:var(--muted)}
+.meta{font-size:13px;color:var(--muted)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px}
+textarea{width:100%;min-height:150px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);font:13px/1.4 ui-monospace,Menlo,Consolas,monospace}
+code{background:var(--soft);padding:1px 6px;border-radius:5px;font-size:13px}
+.msg{margin-top:10px;font-weight:500}
+footer{max-width:1080px;margin:0 auto;padding:0 20px 28px;color:var(--muted);font-size:13px}
+.links{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;margin-top:4px}.links a{color:var(--accent);font-weight:600;text-decoration:none}.links a:hover{text-decoration:underline}.sy{color:var(--muted)}.sy.ok{color:var(--green)}.sy.bad{color:var(--amber)}
+.scroll{overflow-x:auto}
+@media (max-width:700px){.row{grid-template-columns:minmax(0,1fr) auto;row-gap:6px}.row .h{display:none}.row.head{display:none}.fig{border-right:0;border-bottom:1px solid var(--line)}nav{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:no-preference){.row{transition:background .15s}.row:not(.head):hover{background:var(--soft)}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<a class="brand" href="#dashboard"><span class="mark">MMT</span>MMT Business Corporation</a>
+<nav aria-label="Main"><a href="#dashboard" data-v="dashboard">Dashboard</a><a href="#site" data-v="site">Public page</a><a href="#sync" data-v="sync">Sync from Notion</a></nav>
+</div></header>
+<main id="app"></main>
+<footer id="foot"></footer>
+<script>
+var SAMPLE=[
+{name:"mmt-portal",url:"https://github.com/",status:"Active",language:"TypeScript",stars:42,issues:6,updated:"2026-11-18",description:"Customer portal for invoices, orders and account requests."},
+{name:"mmt-inventory",url:"https://github.com/",status:"Active",language:"Python",stars:18,issues:3,updated:"2026-11-15",description:"Stock tracking and reorder alerts across branches."},
+{name:"mmt-website",url:"https://github.com/",status:"Active",language:"JavaScript",stars:9,issues:1,updated:"2026-11-12",description:"Company website and contact forms."},
+{name:"mmt-accounts-api",url:"https://github.com/",status:"Maintenance",language:"Go",stars:27,issues:8,updated:"2026-10-29",description:"Billing and ledger API used by internal tools."},
+{name:"mmt-mobile",url:"https://github.com/",status:"Active",language:"Kotlin",stars:15,issues:4,updated:"2026-11-09",description:"Android app for field staff and delivery tracking."},
+{name:"mmt-reports",url:"https://github.com/",status:"Maintenance",language:"Python",stars:7,issues:2,updated:"2026-09-30",description:"Scheduled monthly and quarterly business reports."},
+{name:"mmt-legacy-crm",url:"https://github.com/",status:"Archived",language:"PHP",stars:3,issues:0,updated:"2025-12-04",description:"Retired CRM kept for reference."}];
+SAMPLE=[["mmtrades-dashboard","HTML","Trading performance dashboard with a monthly calendar, P&L metrics and charts, synced from Notion every five minutes."],["mmtrades-period-stats","HTML","Companion page showing P&L by day of week, month and week, synced from the same Notion data."],["Playbook-","HTML","MMTrades Framework Ledger: AM and PM framework playbook cards, cumulative P&L and a framework heatmap from Notion."],["BACKTEST-ANALYSIS","HTML","Backtesting dashboard covering direction, R:R, entry models, monthly volume and entry-time patterns."],["Statisctics","HTML","First Hour NASDAQ RTH Profile Tracker: when the daily high and low form versus the 9:30 to 10:30 opening range, by day direction."]].map(function(a){return{name:a[0],url:"https://github.com/munga068-ctrl/"+a[0],status:"Active",language:a[1],stars:0,issues:0,updated:"",description:a[2]}});
+var COLORS={TypeScript:"#2450E0",Python:"#1F8F5F",JavaScript:"#D98A1B",Go:"#12A5B8",HTML:"#E0623A",Kotlin:"#8A5CD6",PHP:"#7A8799",Other:"#B9C3D2"};
+var SYNCS={"mmtrades-dashboard":"Every 5 min","mmtrades-period-stats":"Every 5 min","Statisctics":"Every 15 min"};
+function liveOf(r){if(r.live)return r.live;var p=(r.url||"").replace(/\.git$/,"").split("/");return p[2]==="github.com"&&p[3]&&p[4]?"https://"+p[3]+".github.io/"+p[4]+"/":""}
+function age(r){return(Date.now()-new Date(r.last_run))/6e4}
+function health(r){if(!r.last_run)return"";if(r.conclusion==="failure")return"failing";if(!r.sync_minutes)return"";return age(r)>3*r.sync_minutes+15?"stale":"fresh"}
+function extra(r){var l=liveOf(r),s=r.sync||SYNCS[r.name]||"",h=health(r),t="";
+if(h==="fresh")t='<span class="sy ok">\u25cf Data fresh \u00b7 synced '+ago(r.last_run).toLowerCase()+'</span>';
+else if(h==="stale")t='<span class="sy bad">\u25cf Data stale \u00b7 last sync '+ago(r.last_run).toLowerCase()+'</span>';
+else if(h==="failing")t='<span class="sy bad">\u25cf Last sync failed '+ago(r.last_run).toLowerCase()+'</span>';
+else if(r.last_run)t='<span class="sy">\u27f3 Last sync '+ago(r.last_run).toLowerCase()+'</span>';
+else if(s)t='<span class="sy">\u27f3 Syncs '+esc(s.toLowerCase())+'</span>';
+return l||t?'<span class="links">'+(l?'<a href="'+esc(l)+'" target="_blank" rel="noopener">Open live \u2197</a>':'')+t+'</span>':''}
+var KEY="mmt.repos.v1",SKEY="mmt.synced.v1",repos=SAMPLE.slice(),synced=null,F={q:"",s:"All",o:"updated"};
+function store(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function fetchStore(k){try{return localStorage.getItem(k)}catch(e){return null}}
+(function(){var r=fetchStore(KEY);if(r){try{var p=JSON.parse(r);if(p&&p.length)repos=p}catch(e){}}synced=fetchStore(SKEY)})();
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function ago(d){var t=new Date(d);if(isNaN(t))return"—";var n=Math.floor((Date.now()-t)/864e5);if(n<1)return"Today";if(n<2)return"Yesterday";if(n<31)return n+" days ago";if(n<365)return Math.floor(n/30)+" mo ago";return Math.floor(n/365)+" yr ago"}
+function col(l){return COLORS[l]||COLORS.Other}
+function safeUrl(u){return/^https?:\/\//i.test(u)?u:"#"}
+function dash(){
+var tot=repos.length,act=repos.filter(function(r){return r.status==="Active"}).length,st=repos.reduce(function(a,r){return a+(+r.stars||0)},0),is=repos.reduce(function(a,r){return a+(+r.issues||0)},0);
+var lc={};repos.forEach(function(r){var l=r.language||"Other";lc[l]=(lc[l]||0)+1});
+var langs=Object.keys(lc).sort(function(a,b){return lc[b]-lc[a]});
+var list=repos.filter(function(r){return(F.s==="All"||r.status===F.s)&&(r.name+" "+r.description+" "+r.language).toLowerCase().indexOf(F.q.toLowerCase())>-1});
+list.sort(function(a,b){return F.o==="name"?a.name.localeCompare(b.name):F.o==="stars"?b.stars-a.stars:F.o==="issues"?b.issues-a.issues:new Date(b.updated)-new Date(a.updated)});
+var rows=list.map(function(r){return'<div class="row"><div><a class="n" href="'+esc(safeUrl(r.url))+'" target="_blank" rel="noopener">'+esc(r.name)+'</a><small>'+esc(r.description)+'</small>'+extra(r)+'</div><div><span class="pill '+esc(r.status)+'">'+esc(r.status)+'</span></div><div class="h num">★ '+esc(r.stars)+'</div><div class="h num">'+esc(r.issues)+' open</div><div class="h meta">'+ago(r.updated)+'</div></div>'}).join("");
+return'<h1>Repository overview</h1><p class="sub">Every repository from your Notion database in one place. '+(synced?"Last imported "+esc(synced)+".":"Data is read from GitHub by the sync workflow.")+'</p>'+
+'<div class="band"><div class="fig"><b>'+tot+'</b><span>Repositories</span></div><div class="fig"><b>'+act+'</b><span>Active</span></div><div class="fig"><b>'+st+'</b><span>Total stars</span></div><div class="fig"><b>'+is+'</b><span>Open issues</span></div></div>'+
+'<div class="lang"><h2>Languages</h2><div class="stack" role="img" aria-label="Language share">'+langs.map(function(l){return'<span style="width:'+lc[l]/tot*100+'%;background:'+col(l)+'"></span>'}).join("")+'</div><div class="key">'+langs.map(function(l){return'<span><i class="dot" style="background:'+col(l)+'"></i>'+esc(l)+' '+lc[l]+'</span>'}).join("")+'</div></div>'+
+'<div class="tools"><input type="search" id="q" placeholder="Search repositories" aria-label="Search repositories" value="'+esc(F.q)+'"><select id="st" aria-label="Filter by status">'+["All","Active","Maintenance","Archived"].map(function(s){return'<option'+(F.s===s?" selected":"")+'>'+s+'</option>'}).join("")+'</select><select id="so" aria-label="Sort by">'+[["updated","Recently updated"],["name","Name"],["stars","Most stars"],["issues","Most issues"]].map(function(s){return'<option value="'+s[0]+'"'+(F.o===s[0]?" selected":"")+'>'+s[1]+'</option>'}).join("")+'</select></div>'+
+'<div class="list"><div class="row head"><div>Repository</div><div>Status</div><div class="h">Stars</div><div class="h">Issues</div><div class="h">Updated</div></div>'+(rows||'<div class="empty">No repositories match. Clear the search or change the status filter.</div>')+'</div>'}
+function site(){
+var pub=repos.filter(function(r){return r.status!=="Archived"});
+return'<section class="hero"><h1>MMT Business Corporation</h1><p class="sub">Software that runs our business, built and maintained in the open. Here is what we are working on.</p><a class="cta" href="#dashboard">Open dashboard</a></section><h2>Our projects</h2><div class="proj">'+
+pub.map(function(r){return'<article><h3>'+esc(r.name)+'</h3><p>'+esc(r.description)+'</p><div class="meta"><i class="dot" style="background:'+col(r.language)+'"></i>'+esc(r.language||"Other")+' · Updated '+ago(r.updated).toLowerCase()+'</div><p style="margin:8px 0 0"><a href="'+esc(safeUrl(r.url))+'" target="_blank" rel="noopener">View on GitHub</a>'+(liveOf(r)?' · <a href="'+esc(liveOf(r))+'" target="_blank" rel="noopener">Open live dashboard</a>':'')+'</p></article>'}).join("")+'</div>'}
+function syncv(){
+return'<h1>Sync from Notion</h1><p class="sub">Export your repository database from Notion and load it here. Your data stays in this browser.</p>'+
+'<div class="panel"><h2>Import</h2><p class="meta">In Notion, open the database, choose <code>Export</code> as CSV, then upload the file or paste its contents. JSON also works, including the output of <code>gh repo list munga068-ctrl --json name,url,description,primaryLanguage,stargazerCount,updatedAt</code>. Expected columns: Name, URL, Status, Language, Stars, Issues, Updated, Description.</p><p><input type="file" id="file" accept=".csv,.json,.txt" aria-label="Upload Notion export"></p><textarea id="paste" placeholder="Or paste CSV / JSON here" aria-label="Paste export"></textarea><p><button class="cta" id="imp">Import repositories</button> <button class="cta alt" id="rst">Reset to my five repos</button></p><div class="msg" id="msg" role="status"></div></div>'+
+'<div class="panel"><h2>Live sync</h2><p class="meta" style="margin:0">Automatic two-way sync with Notion and GitHub needs a small backend that holds your Notion integration token. Ask Claude to add it when you are ready.</p></div>'}
+function csv(t){var rows=[],r=[],c="",q=false,i,ch;for(i=0;i<t.length;i++){ch=t[i];if(q){if(ch==='"'){if(t[i+1]==='"'){c+='"';i++}else q=false}else c+=ch}else if(ch==='"')q=true;else if(ch===","){r.push(c);c=""}else if(ch==="\n"||ch==="\r"){if(ch==="\r"&&t[i+1]==="\n")i++;r.push(c);c="";if(r.some(Boolean))rows.push(r);r=[]}else c+=ch}
+r.push(c);if(r.some(Boolean))rows.push(r);return rows}
+function norm(o){var g=function(k){for(var x in o){if(x.toLowerCase().trim()===k)return o[x]}return""};
+var st=String(g("status")||"Active").trim();if(!/^(Active|Maintenance|Archived)$/i.test(st))st="Active";st=st[0].toUpperCase()+st.slice(1).toLowerCase();
+return{name:g("name")||g("repo")||"untitled",url:g("url")||g("github url")||"",status:st,language:g("language")||(g("primarylanguage")&&g("primarylanguage").name)||"Other",stars:+g("stars")||+g("stargazercount")||0,issues:+g("issues")||0,updated:g("updated")||g("updatedat")||g("last edited time")||"",description:g("description")||""}}
+function parse(t){t=t.trim();if(!t)return[];if(t[0]==="["||t[0]==="{"){var j=JSON.parse(t);return(Array.isArray(j)?j:[j]).map(norm)}
+var rs=csv(t.replace(/^\uFEFF/,""));var h=rs.shift();return rs.map(function(r){var o={};h.forEach(function(k,i){o[k]=r[i]||""});return norm(o)})}
+function show(){var h=(location.hash||"#dashboard").slice(1);if(["dashboard","site","sync"].indexOf(h)<0)h="dashboard";
+document.getElementById("app").innerHTML=h==="site"?site():h==="sync"?syncv():dash();
+document.querySelectorAll("nav a").forEach(function(a){if(a.dataset.v===h)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+document.getElementById("foot").textContent="© 2026 MMT Business Corporation";
+if(h==="dashboard"){var q=document.getElementById("q");q.oninput=function(){F.q=q.value;var p=q.selectionStart;show();var n=document.getElementById("q");n.focus();n.setSelectionRange(p,p)};
+document.getElementById("st").onchange=function(e){F.s=e.target.value;show()};document.getElementById("so").onchange=function(e){F.o=e.target.value;show()}}
+if(h==="sync"){var m=document.getElementById("msg"),ta=document.getElementById("paste");
+document.getElementById("file").onchange=function(e){var f=e.target.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){ta.value=rd.result};rd.readAsText(f)};
+document.getElementById("imp").onclick=function(){try{var d=parse(ta.value);if(!d.length){m.textContent="Nothing to import. Choose a file or paste your export first.";return}repos=d;synced=new Date().toLocaleString();store(KEY,JSON.stringify(d));store(SKEY,synced);m.textContent="Imported "+d.length+" repositories. Open the dashboard to see them."}catch(e){m.textContent="Could not read that export. Check that it is a CSV or JSON file from Notion."}};
+document.getElementById("rst").onclick=function(){repos=SAMPLE.slice();synced=null;store(KEY,JSON.stringify(repos));store(SKEY,"");m.textContent="Default repo list restored."}}}
+fetch("data/repos.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():Promise.reject()}).then(function(j){if(j&&j.repos&&j.repos.length){repos=j.repos;synced=new Date().toLocaleString();show()}}).catch(function(){});
+window.addEventListener("hashchange",show);show();
+</script>
+</body>
+</html>
