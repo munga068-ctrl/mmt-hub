@@ -1,1 +1,15 @@
-{"repos": []}
+{
+  "owner": "munga068-ctrl",
+  "repos": [
+    {"name": "mmtrades-dashboard", "status": "Active", "sync_minutes": 5,
+     "description": "Trading performance dashboard with a monthly calendar, P&L metrics and charts, synced from Notion."},
+    {"name": "mmtrades-period-stats", "status": "Active", "sync_minutes": 5,
+     "description": "Companion page showing P&L by day of week, month and week, synced from the same Notion data."},
+    {"name": "Playbook-", "status": "Active", "sync_minutes": null,
+     "description": "MMTrades Framework Ledger: AM and PM framework playbook cards, cumulative P&L and a framework heatmap from Notion."},
+    {"name": "BACKTEST-ANALYSIS", "status": "Active", "sync_minutes": null,
+     "description": "Backtesting dashboard covering direction, R:R, entry models, monthly volume and entry-time patterns."},
+    {"name": "Statisctics", "status": "Active", "sync_minutes": 15,
+     "description": "First Hour NASDAQ RTH Profile Tracker: when the daily high and low form versus the 9:30 to 10:30 opening range."}
+  ]
+}
