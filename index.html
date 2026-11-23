@@ -96,10 +96,10 @@ function liveOf(r){if(r.live)return r.live;var p=(r.url||"").replace(/\.git$/,""
 function age(r){return(Date.now()-new Date(r.last_run))/6e4}
 function health(r){if(!r.last_run)return"";if(r.conclusion==="failure")return"failing";if(!r.sync_minutes)return"";return age(r)>3*r.sync_minutes+15?"stale":"fresh"}
 function extra(r){var l=liveOf(r),s=r.sync||SYNCS[r.name]||"",h=health(r),t="";
-if(h==="fresh")t='<span class="sy ok">\u25cf Data fresh \u00b7 synced '+ago(r.last_run).toLowerCase()+'</span>';
-else if(h==="stale")t='<span class="sy bad">\u25cf Data stale \u00b7 last sync '+ago(r.last_run).toLowerCase()+'</span>';
-else if(h==="failing")t='<span class="sy bad">\u25cf Last sync failed '+ago(r.last_run).toLowerCase()+'</span>';
-else if(r.last_run)t='<span class="sy">\u27f3 Last sync '+ago(r.last_run).toLowerCase()+'</span>';
+if(h==="fresh")t='<span class="sy ok">\u25cf Data fresh \u00b7 synced '+agoT(r.last_run).toLowerCase()+'</span>';
+else if(h==="stale")t='<span class="sy bad">\u25cf Data stale \u00b7 last sync '+agoT(r.last_run).toLowerCase()+'</span>';
+else if(h==="failing")t='<span class="sy bad">\u25cf Last sync failed '+agoT(r.last_run).toLowerCase()+'</span>';
+else if(r.last_run)t='<span class="sy">\u27f3 Last sync '+agoT(r.last_run).toLowerCase()+'</span>';
 else if(s)t='<span class="sy">\u27f3 Syncs '+esc(s.toLowerCase())+'</span>';
 return l||t?'<span class="links">'+(l?'<a href="'+esc(l)+'" target="_blank" rel="noopener">Open live \u2197</a>':'')+t+'</span>':''}
 var KEY="mmt.repos.v1",SKEY="mmt.synced.v1",repos=SAMPLE.slice(),synced=null,F={q:"",s:"All",o:"updated"};
@@ -108,6 +108,7 @@ function fetchStore(k){try{return localStorage.getItem(k)}catch(e){return null}}
 (function(){var r=fetchStore(KEY);if(r){try{var p=JSON.parse(r);if(p&&p.length)repos=p}catch(e){}}synced=fetchStore(SKEY)})();
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function ago(d){var t=new Date(d);if(isNaN(t))return"—";var n=Math.floor((Date.now()-t)/864e5);if(n<1)return"Today";if(n<2)return"Yesterday";if(n<31)return n+" days ago";if(n<365)return Math.floor(n/30)+" mo ago";return Math.floor(n/365)+" yr ago"}
+function agoT(d){var m=Math.floor((Date.now()-new Date(d))/6e4);if(isNaN(m))return"—";if(m<1)return"just now";if(m<60)return m+" min ago";var h=Math.floor(m/60);if(h<24)return h+" h ago";return ago(d)}
 function col(l){return COLORS[l]||COLORS.Other}
 function safeUrl(u){return/^https?:\/\//i.test(u)?u:"#"}
 function dash(){
